@@ -33,20 +33,3 @@ jobs:
       run: docker run champlinyanis/ci_project
     - name: Docker push image
       run: docker push champlinyanis/ci_project
-
-    
-
-
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run pytest
-        run: |
-          pip install pytest
-          echo PYTEST
-          pytest
-
-      - name: Run docker
-        run: |
-          docker build -t ci_project .
-          echo test, and deploy your project.
