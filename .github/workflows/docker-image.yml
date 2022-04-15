@@ -18,14 +18,14 @@ jobs:
         pip install pytest
         echo pytest
         pytest
-    # - name: Docker login
-    #   env:
-    #     DOCKER_USER: ${{secrets.DOCKER_USER}}
-    #     DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-    #   run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD    
-    # - name: Build the Docker image
-    #   run: docker build . --file Dockerfile --tag champlinyanis/ci_project
-    # - name: Run the Docker image
-    #   run: docker run champlinyanis/ci_project
-    # - name: Docker push image
-    #   run: docker push champlinyanis/ci_project
+    - name: Docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD    
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag champlinyanis/ci_project
+    - name: Run the Docker image
+      run: docker run champlinyanis/ci_project
+    - name: Docker push image
+      run: docker push champlinyanis/ci_project
