@@ -28,12 +28,11 @@ def test_duel_no_heal_person_1():
     assert expected_result == actual_result
     
 def test_duel_no_heal_wizard_1():
-    expected_result = 'Batman'
-    person.hit(wizard)
+    expected_result = 'Wizard'
     wizard.hit(person)
+    person.hit(wizard)    
     if(person.life_points > wizard.life_points):
         actual_result = person.name
     else:
         actual_result = wizard.name
     assert expected_result == actual_result
-
