@@ -68,8 +68,8 @@ def Duel():
     print("Total hits Wizard : " + str(hits.count("Wizard")))
     print("Total potions Hero : " + str(potions.count("Hero")))
     print("Total potions Wizard : " + str(potions.count("Wizard")))
-    # print("potions : " + str(potions))
-    # print("nb of turns : " + str(turn))
     
-            
+    print("Hero - final value : " + str(hits.count("Hero") - potions.count("Wizard")))    
+    print("Wizard - final value : " + str(hits.count("Wizard") - potions.count("Hero")*(10/15)))
+    
 Duel()
