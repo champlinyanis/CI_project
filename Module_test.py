@@ -184,6 +184,16 @@ def test_potion_plus_life_gain_wizard():
     hp_after_potion_and_life_gain = wizard.get_life_points()
     actual_result = hp_after_potion_and_life_gain - hp_before_potion_and_life_gain
     assert expected_result == actual_result
+
+# attack while dead
+def test_undead_wizard():
+    person = Person('Batman')
+    wizard = Wizard('Gandalf')
+    expected_result = 85
+    wizard.gained_life_points(-wizard.get_life_points())
+    wizard.hit(person)
+    actual_result = person.get_life_points()
+    assert expected_result == actual_result
     
 # main  
 def test_duel():    
