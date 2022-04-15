@@ -9,11 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Run the test
@@ -25,8 +22,7 @@ jobs:
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run:
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD    
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD    
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag champlinyanis/ci_project
     - name: Run the Docker image
