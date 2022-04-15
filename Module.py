@@ -16,6 +16,9 @@ class Person:
 
     def get_life_points(self):
         return self.life_points
+    
+    def reset(self):
+        self.life_points = 100
 
 class Wizard(Person):
     def __init__(self, name):
@@ -25,6 +28,9 @@ class Wizard(Person):
     def hit(self, person):
         person.life_points -= 15
         return person
+    
+    def reset(self):
+        self.life_points = 100
 
 class HealthPotion:
     def was_used_by(person):
