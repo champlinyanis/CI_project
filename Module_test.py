@@ -1,8 +1,7 @@
 from Module import Person, Wizard, HealthPotion
 
 person = Person('Batman')
-person2 = Person('Gandalf')
-wizard = Wizard(person2, 'Gandalf')
+wizard = Wizard('Gandalf')
 
 def test_potion_person():
     expected_result = True
