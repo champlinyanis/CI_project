@@ -1,5 +1,5 @@
 from Module import Person, Wizard, HealthPotion
-from main import duel, duel_no_random
+from main import duel_no_random #, duel
 
 # potion
 def test_potion_person():
