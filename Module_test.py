@@ -1,14 +1,14 @@
 from Module import Person, Wizard, HealthPotion
 
 person = Person('Batman')
-wizard = Wizard(Person('Gandalf'))
+wizard = Wizard(Person(), 'Gandalf')
 
 def test_potion_person():
     expected_result = True
     hp_before_potion = person.get_life_points  
     HealthPotion.was_used_by(person)
     hp_after_potion = person.get_life_points
-    if hp_before_potion < hp_before_potion:
+    if hp_before_potion < hp_after_potion:
         actual_result = True
     else:
         actual_result = False
@@ -19,7 +19,7 @@ def test_potion_wizard():
     hp_before_potion = wizard.get_life_points  
     HealthPotion.was_used_by(wizard)
     hp_after_potion = wizard.get_life_points
-    if hp_before_potion < hp_before_potion:
+    if int(hp_before_potion) < int(hp_after_potion):
         actual_result = True
     else:
         actual_result = False
