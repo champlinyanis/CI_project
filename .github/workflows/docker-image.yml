@@ -16,6 +16,7 @@ jobs:
     - name: Run the test
       run: |
         pip install pytest
+        pip install numpy
         echo pytest
         pytest
     - name: Docker login
