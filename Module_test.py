@@ -1,5 +1,6 @@
 from Module import Person, Wizard, HealthPotion
-from main import Duel
+from main import duel, duel_no_random
+import numpy as np
 
 # potion
 def test_potion_person():
@@ -184,3 +185,38 @@ def test_potion_plus_life_gain_wizard():
     hp_after_potion_and_life_gain = wizard.get_life_points()
     actual_result = hp_after_potion_and_life_gain - hp_before_potion_and_life_gain
     assert expected_result == actual_result
+    
+# main  
+def test_duel():    
+    user_1 = Person("Hero")
+    user_2 = Wizard("Wizard")    
+    hits = [0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+    potions = [2, 0, 1, 1, 0, 2, 1, 2, 0, 2, 0, 1, 2, 1, 2, 2, 2, 0, 2]
+    turn = 0
+    total_turns = 20    
+    while turn < total_turns:   
+        random = hits[turn]        
+        if random == 1:
+            user_1.hit(user_2)
+            hits.append(user_1.name)
+        else:
+            user_2.hit(user_1)
+            hits.append(user_2.name)
+        random_health_potion_use = potions[turn]
+        if random_health_potion_use == 0:
+            HealthPotion.was_used_by(user_1)
+            potions.append(user_1.name)
+        elif random_health_potion_use == 1:
+            HealthPotion.was_used_by(user_2)
+            potions.append(user_2.name)
+        else:
+            potions.append("no pot")
+            pass
+        turn += 1        
+        
+    if(str(hits.count("Hero") - potions.count("Wizard")) < str(hits.count("Wizard") - potions.count("Hero")*(10/15))):
+        expected_result = user_2.name
+    else:
+        expected_result = user_1.name
+        
+    assert expected_result == duel_no_random()   
