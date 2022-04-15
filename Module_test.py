@@ -17,20 +17,22 @@ def test_wizard_suicide():
     actual_result = wizard.is_dead()
     assert expected_result == actual_result
 
-def test_duel_no_heal_person_1():
-    expected_result = 'Batman'
-    person.hit(wizard)
-    wizard.hit(person)
+def test_death_duel_person_first_no_heal():
+    expected_result = 'Wizard' 
+    while person.life_points > 0 & wizard.life_points > 0: 
+        person.hit(wizard)
+        wizard.hit(person)        
     if(person.life_points > wizard.life_points):
         actual_result = person.name
     else:
         actual_result = wizard.name
     assert expected_result == actual_result
     
-def test_duel_no_heal_wizard_1():
+def test_death_duel_wizard_first_no_heal():
     expected_result = 'Wizard'
-    wizard.hit(person)
-    person.hit(wizard)    
+    while person.life_points > 0 & wizard.life_points > 0:
+        wizard.hit(person)
+        person.hit(wizard)    
     if(person.life_points > wizard.life_points):
         actual_result = person.name
     else:
