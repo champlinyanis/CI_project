@@ -1,6 +1,5 @@
 from Module import Person, Wizard, HealthPotion
 from main import duel, duel_no_random
-import numpy as np
 
 # potion
 def test_potion_person():

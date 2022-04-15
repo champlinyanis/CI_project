@@ -12,14 +12,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3 #v2
     # - name: Install numpy
-    #   run: pip install numpy
+    #   run: pip install numpy | python3 -m pip install numpy | pip install numpy
     - name: Run the test
       run: |
         pip install pytest
-        python3 -m pip install numpy
-        echo pytest
         pytest
     - name: Docker login
       env:
